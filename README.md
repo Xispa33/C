@@ -23,5 +23,12 @@ add a folder .vscode, add a file naùed settings.json, with
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
+This repo is made of 2 directories : one containing the source code of the application and the other everything related to testing. To run the application,a third folder (build) needs to be created.
+build will containg everything that is created : Makefile, cached files, binaries
+in cxx, advanced_math and base_math are example directory that could in a real project be replaced as librairies.
 
-Next time: add second library + add google tests + move main directory inside cxx + debugging
+Next time: 
+add second library: OK
+add google tests 
+move main directory inside cxx : OK
+debugging
