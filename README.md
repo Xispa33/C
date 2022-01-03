@@ -18,8 +18,8 @@ The executable is created in the build folder.
 
 (cmd + shift + p then reload window, select compiler to create a cmake project)
 
-To configure a CMake project:
-add a folder .vscode, add a file naùed settings.json, with
+To configure a CMake project/Intelli sense:
+add a folder .vscode, add a file named settings.json, with
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
