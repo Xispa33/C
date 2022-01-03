@@ -29,6 +29,11 @@ in cxx, advanced_math and base_math are example directory that could in a real p
 
 Next time: 
 add second library: OK
-add google tests 
+add google tests : OK
 move main directory inside cxx : OK
+
+Rajouter des tests
+Mocks
+Stubs
+Arborescence de test à mettre au propre
 debugging

@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-//#include "example.h"
+#include "base_math.hpp"
+#include "advanced_math.hpp"
 
 TEST(example,addition) {
     /* EXPECT_EQ checks the equality between 2 values. If not, moves on to the next one */
