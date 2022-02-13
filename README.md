@@ -1,39 +1,92 @@
 # CXX
+This project aims at providing a minimal configuration for any C++ project
 
 # SUMMARY
-Intro
+<ol>
+    <li>Introduction</li>
+    <li>CMake</li>
+    <li>Testing
+        <ol>
+            <li>Google tests</li>
+            <li>CMock/Unity</li>
+        </ol>
+    </li>
+    <li>Debugging</li>
+</ol>
 
+## Introduction
+This project aims at providing a minimal configuration for any C++ project. Here are a list of tools used that can be helpful for any project:
+<ol>
+    <li>source files compilation management : **CMake** </li>
+    <li>test frameworks: **GoogleTest**, **CMock**, **Unity**</li>
+    <li>Coverage : **gcov**</li>
+    <li>CI : **Jenkins**</li>
+    <li> Debug : **gdb** </li>
+</ol>
 
-Intro:
-This project aims at providing a minimal configuration for any C++ project with CMake to manage source files compilation and GoogleTest to test implemented functions. 
-A Python script has also been implemented to convert GoogleTest results to a JUnit format.
-A continuous integration chain has been setup using Jenkins. 
-A Docker has also been created for this repository. K8S is used to orchestrate N dockers.
+A Docker has also been created for this repository. K8S can be used to orchestrate N dockers.
 
-To begin
-1 - Create build directory and do:
-cd build; cmake ..; make
+This repo will describe how to use these tools for a simple C++ project.
 
-The executable is created in the build folder.
+This repo is made of two main directories : 
+<ul>
+<li> one containing the source code of the application (cxx) </li>
+<li> one containing everything related to testing (tests) </li>
+</ul>
+When compiling the application, a third folder (build) will be created.
 
-(cmd + shift + p then reload window, select compiler to create a cmake project)
+In cxx, *advanced_math* and *base_math* are example directory that in a real project, could be librairies.
 
-To configure a CMake project/Intelli sense:
-add a folder .vscode, add a file named settings.json, with
+## CMake
+To compile source files using CMake, several CMakelists.txt have to be placed.
+
+To compile CMake project inside a build directory:
+```sh
+cd build; cmake ..
+```
+This command will generate 'Makefile's containing rules to compile the application.
+
+To compile all executables defined:
+```sh
+make 
+```
+
+*clean* can be added to remove generated files before compiling. If only one executable has to be compiled, run:
+```sh
+make $NAME_OF_EXECUTABLE
+```
+
+To configure a CMake project/Intelli sense under VS Code, a folder .vscode has to be added,with a settings.json file containing:
+```json
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
-This repo is made of 2 directories : one containing the source code of the application and the other everything related to testing. To run the application,a third folder (build) needs to be created.
-build will containg everything that is created : Makefile, cached files, binaries
-in cxx, advanced_math and base_math are example directory that could in a real project be replaced as librairies.
+```
+Another way is to run Cmd + Shift + p, then '>Reload window' and then select a compiler.
 
-Next time: 
-add second library: OK
-add google tests : OK
-move main directory inside cxx : OK
+## Testing
+In the test folder, several sub-folders have been added for every librairy. Every test ending with '01' and '02' are tests played using GoogleTest framework.
+'03' and '04' tests use tests CMock/Unity.
 
+When testing, it is important to differenciate Mocks and Stubs.
+
+Mock are ..
+
+Stubs are ..
+
+Test results can be output in several formats. This repo will only focus on JUnit.
+### GoogleTest
+
+Note: 
+A Python script has to be implemented to convert GoogleTest results to a JUnit format.
+
+### CMock
+
+### Unity
+
+
+
+TODO
 Rajouter des tests
-Mocks
-Stubs
-Arborescence de test à mettre au propre
-debugging
+Mocks, Stubs using gtest
+Debugging

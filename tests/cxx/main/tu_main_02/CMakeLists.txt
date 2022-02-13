@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-set(This tu_main_01_exe)
+set(This tu_main_02_exe)
 
 set(Sources
     main.cpp
@@ -14,7 +14,6 @@ target_link_libraries(${This} PUBLIC
     base_math
     advanced_math
     gtest_main
-    gmock
 )
 
 add_test(NAME ${This}

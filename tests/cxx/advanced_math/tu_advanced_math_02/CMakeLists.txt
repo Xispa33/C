@@ -1,20 +1,16 @@
 cmake_minimum_required(VERSION 3.8)
 
-set(This tu_main_01_exe)
+set(This tu_advanced_math_02_exe)
 
 set(Sources
-    main.cpp
+    advanced_math.cpp
 )
 
 add_executable(${This} ${Sources})
 
-#include_directories("/Users/brice/Desktop/Codes/GoogleTest/C_base")
-
 target_link_libraries(${This} PUBLIC
-    base_math
     advanced_math
     gtest_main
-    gmock
 )
 
 add_test(NAME ${This}

@@ -11,5 +11,6 @@ int main()
     cout << CXX_VERSION << endl;
 
     cout << ADVANCED_MATH__Factoriel(5) << endl;
+    cout << ADVANCED_MATH__PGCD(12, 6) << endl;
     return 0;
 }
