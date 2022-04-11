@@ -1,5 +1,5 @@
 # CXX
-This project aims at providing a minimal configuration for any C++ project
+This project aims at providing a minimal configuration for any C project
 
 # SUMMARY
 <ol>
@@ -7,8 +7,8 @@ This project aims at providing a minimal configuration for any C++ project
     <li>CMake</li>
     <li>Testing
         <ol>
-            <li>Google tests</li>
             <li>CMock/Unity</li>
+            <li>CMocka</li>
         </ol>
     </li>
     <li>Debugging</li>
@@ -18,15 +18,16 @@ This project aims at providing a minimal configuration for any C++ project
 This project aims at providing a minimal configuration for any C++ project. Here are a list of tools used that can be helpful for any project:
 <ol>
     <li>source files compilation management : **CMake** </li>
-    <li>test frameworks: **GoogleTest**, **CMock**, **Unity**</li>
+    <li>test frameworks: **CMock**, **Unity**, **CMocka** </li>
     <li>Coverage : **gcov**</li>
     <li>CI : **Jenkins**</li>
     <li> Debug : **gdb** </li>
+    <li> Compiler : **clang** </li>
 </ol>
 
 A Docker has also been created for this repository. K8S can be used to orchestrate N dockers.
 
-This repo will describe how to use these tools for a simple C++ project.
+This repo will describe how to use these tools for a simple C project.
 
 This repo is made of two main directories : 
 <ul>
@@ -70,9 +71,6 @@ In the test folder, several sub-folders have been added for every librairy. Ever
 
 When testing, it is important to differenciate Mocks and Stubs.
 
-Mock are ..
-
-Stubs are ..
 
 Test results can be output in several formats. This repo will only focus on JUnit.
 ### GoogleTest
@@ -81,12 +79,18 @@ Note:
 A Python script has to be implemented to convert GoogleTest results to a JUnit format.
 
 ### CMock
-
+Install
+git clone --recursive https://github.com/throwtheswitch/cmock.git
+bundle install --path vendor/bundle
 ### Unity
 
+### CMocka
 
 
 TODO
-Rajouter des tests
-Mocks, Stubs using gtest
-Debugging
+advanced math test 3 et 4 à automatiser, mettre au propre.
+Sonar
+Coverage
+Format JUnit en sortie
+Jenkins depuis GitHub
+Artifactory (2 images: 1 pour sonar, l'autre pour les tests)

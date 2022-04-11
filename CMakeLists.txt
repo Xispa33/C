@@ -7,9 +7,10 @@ enable_testing()
 # the executable. Therefore, cxx needs to be compiled before main.
 # add_subdirectory(cxx) therefore needs to be placed before 
 # add_subdirectory(main)
-add_subdirectory(cxx/base_math)
-add_subdirectory(cxx/advanced_math)
-add_subdirectory(cxx/main)
+add_subdirectory(c/base_math)
+add_subdirectory(c/advanced_math)
+add_subdirectory(c/cg)
+add_subdirectory(c/main)
 
 add_subdirectory(tests/cxx)
-add_subdirectory(tests/googletest)
+#add_subdirectory(tests/googletest)
