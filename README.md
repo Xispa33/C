@@ -78,19 +78,26 @@ Test results can be output in several formats. This repo will only focus on JUni
 Note: 
 A Python script has to be implemented to convert GoogleTest results to a JUnit format.
 
-### CMock
+### CMock / Unity
 Install
+```sh
 git clone --recursive https://github.com/throwtheswitch/cmock.git
 bundle install --path vendor/bundle
-### Unity
+```
+An internet connection is needed for both commands.
 
 ### CMocka
 
+```sh
+git clone https://git.cryptomilk.org/projects/cmocka.git
+mkdir build
+cd build; cmake ..; make
+```
+
+cmake -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/gcc ..
+to force to use gcc compiler in C and C++
+
+Uncomment some lines of CodeCoverage.cmake to use CMocka
 
 TODO
-advanced math test 3 et 4 à automatiser, mettre au propre.
-Sonar
-Coverage
-Format JUnit en sortie
-Jenkins depuis GitHub
-Artifactory (2 images: 1 pour sonar, l'autre pour les tests)
+Doc

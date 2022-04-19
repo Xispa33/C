@@ -32,3 +32,4 @@
 *.app
 
 #tests/frameworks/cmock
+build

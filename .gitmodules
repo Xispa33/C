@@ -1,6 +1,1 @@
-[submodule "tests/frameworks/cmocka"]
-	path = tests/frameworks/cmocka
-	url = https://github.com/clibs/cmocka
-[submodule "tests/frameworks/cmock"]
-	path = tests/frameworks/cmock
-	url = https://github.com/throwtheswitch/cmock.git
+
