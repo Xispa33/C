@@ -1,1 +1,7 @@
 
+[submodule "tests/frameworks/cmocka"]
+	path = tests/frameworks/cmocka
+	url = https://git.cryptomilk.org/projects/cmocka.git
+[submodule "tests/frameworks/cmock"]
+	path = tests/frameworks/cmock
+	url = https://github.com/Xispa33/CMock

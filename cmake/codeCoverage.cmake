@@ -231,7 +231,7 @@ function(setup_target_for_coverage_lcov)
 
     set(options NO_DEMANGLE)
     set(oneValueArgs BASE_DIRECTORY NAME)
-    set(multiValueArgs EXCLUDE EXECUTABLE EXECUTABLE_ARGS DEPENDENCIES LCOV_ARGS GENHTML_ARGS)
+    set(multiValueArgs EXCLUDE EXECUTABLE EXECUTABLE_ARGS DEPENDENCIES LCOV_ARGS GENHTML_ARGS TEST_FRAMEWORK)
     cmake_parse_arguments(Coverage "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if(NOT LCOV_PATH)
@@ -275,13 +275,25 @@ function(setup_target_for_coverage_lcov)
         ${LCOV_PATH} ${Coverage_LCOV_ARGS} --gcov-tool ${GCOV_PATH} -c -i -d . -b 
         ${BASEDIR} -o ${Coverage_NAME}.base
     )
+
     # Run tests
-    set(LCOV_EXEC_TESTS_CMD
-        # Redirection only used for generating JUnit report with unity framework
-        ${Coverage_EXECUTABLE} ${Coverage_EXECUTABLE_ARGS} > ${PROJECT_NAME}.testreport
-        # FOR CMOCKA
-        #CMOCKA_MESSAGE_OUTPUT=xml ${Coverage_EXECUTABLE} ${Coverage_EXECUTABLE_ARGS} > ${PROJECT_NAME}.xml
-    )
+    if (TEST_FRAMEWORK STREQUAL "unity")
+        set(LCOV_EXEC_TESTS_CMD
+            # Redirection only used for generating JUnit report with unity framework
+            ${Coverage_EXECUTABLE} ${Coverage_EXECUTABLE_ARGS} > ${PROJECT_NAME}.testreport
+        )
+
+        set(LCOV_EXCLUDES ${WORKSPACE_DIR}/tests/* ${WORKSPACE_DIR}/build/test/*)
+    elseif(TEST_FRAMEWORK STREQUAL "cmocka")
+        set(LCOV_EXEC_TESTS_CMD
+            CMOCKA_MESSAGE_OUTPUT=xml ${Coverage_EXECUTABLE} ${Coverage_EXECUTABLE_ARGS} > ${PROJECT_NAME}.xml
+        )
+
+        set(LCOV_EXCLUDES ${WORKSPACE_DIR}/build/test/*)
+    else()
+        message(FATAL_ERROR "TEST_FRAMEWORK ${TEST_FRAMEWORK} is unknown ! Aborting...")
+    endif()
+    
     # Capturing lcov counters and generating report
     set(LCOV_CAPTURE_CMD 
         ${LCOV_PATH} ${Coverage_LCOV_ARGS} --gcov-tool ${GCOV_PATH} --directory ${WORKSPACE_DIR} -b 
@@ -293,9 +305,6 @@ function(setup_target_for_coverage_lcov)
         -a ${Coverage_NAME}.capture --output-file ${Coverage_NAME}.total
     )
 
-    set(LCOV_EXCLUDES ${WORKSPACE_DIR}/tests/* ${WORKSPACE_DIR}/build/test/*)
-    # FOR CMOCKA
-    #set(LCOV_EXCLUDES ${WORKSPACE_DIR}/build/test/*)
     # filter collected data to final coverage report
     set(LCOV_FILTER_CMD 
         ${LCOV_PATH} ${Coverage_LCOV_ARGS} --gcov-tool ${GCOV_PATH} --remove 

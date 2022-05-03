@@ -42,5 +42,5 @@ void MAIN_TEST(void) {
     ADVANCED_MATH__Example_1(2);
 
     TEST_ASSERT_EQUAL(0,0);
-    //return 0;
+
 }

@@ -24,7 +24,10 @@ target_link_libraries(${TEST_NAME} PUBLIC
     ${CMOCKA_BUILD_DIR}/src/libcmocka.dylib
 )
 
-target_special_setup_cmocka(${PROJECT_NAME} ${TEST_NAME})
+set(TEST_FRAMEWORK cmocka)
+
+target_special_setup(${PROJECT_NAME} ${TEST_NAME} ${TEST_FRAMEWORK})
+
 #set (CMAKE_CXX_FLAGS "-DNDEBUG")
 #set(COMPILER_FLAGS "INC_LIST_SORT")
 #add_definitions(${COMPILER_FLAGS})

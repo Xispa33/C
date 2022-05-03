@@ -43,4 +43,6 @@ target_link_libraries(${TEST_NAME} PUBLIC
     unity
 )
 
-target_special_setup_unity(${PROJECT_NAME} ${TEST_NAME})
+set(TEST_FRAMEWORK unity)
+
+target_special_setup(${PROJECT_NAME} ${TEST_NAME} ${TEST_FRAMEWORK})
