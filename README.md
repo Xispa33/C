@@ -3,6 +3,7 @@
 Install
 ```sh
 git submodule add https://github.com/Xispa33/CMock tests/frameworks/cmock/
+cd tests/frameworks/cmock/; git pull --recurse-submodules
 bundle install --path vendor/bundle
 ```
 An internet connection is needed for both commands.
