@@ -1,10 +1,8 @@
+properties([pipelineTriggers([githubPush()])])
+node { git url:'https://github.com/Xispa33/C.git', branch:'main' }
+
 pipeline {
     agent any
-    
-    triggers {
-        githubPush()
-    }
-  
     stages { 
         stage('Build') {
             steps {
