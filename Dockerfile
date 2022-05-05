@@ -8,4 +8,4 @@
 # docker commit <container_id> <name_new_image:version>
 # For the created image (named sonar/cxx:v1), login is: admin, password is ad (or ab).
 FROM sonarqube:latest
-COPY sonar-cxx-plugin-2.1.0.160.jar /opt/sonarqube/extensions/plugins/
+COPY sonar-cxx-plugin-2.1.0.160.jar /opt/sonarqube/extensions/plugins/ 
