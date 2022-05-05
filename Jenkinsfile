@@ -11,7 +11,7 @@ pipeline {
                 // docker container fetched from artifactory
             }
         } 
-        
+         
         stage('Card Reservation') {
             steps {
                 echo ' **** Card Reservation Step **** '
