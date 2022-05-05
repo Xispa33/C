@@ -10,7 +10,7 @@ pipeline {
                 // In this step, compilation of the produced code in a 
                 // docker container fetched from artifactory
             }
-        }
+        } 
         
         stage('Card Reservation') {
             steps {
