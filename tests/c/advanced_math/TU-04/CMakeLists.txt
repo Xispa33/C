@@ -20,8 +20,9 @@ add_custom_target(${PROJECT_NAME}.build
 
 add_executable(${TEST_NAME} ${SRC})
 
+
 target_link_libraries(${TEST_NAME} PUBLIC
-    ${CMOCKA_BUILD_DIR}/src/libcmocka.dylib
+    ${CMOCKA_BUILD_DIR}/src/${CMOCKA_LIB}
 )
 
 set(TEST_FRAMEWORK cmocka)

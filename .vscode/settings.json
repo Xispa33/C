@@ -2,5 +2,6 @@
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "files.associations": {
         "mock_advanced_math.h": "c"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

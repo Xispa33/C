@@ -21,3 +21,9 @@ set(BUILD_TU_TEST_DIR $ENV{BUILD_TU_TEST_DIR})
 set(BUILD_TEST_DIR $ENV{BUILD_TEST_DIR})
 
 set(RUN_MODE $ENV{RUN_MODE})
+
+if(APPLE)
+    set(CMOCKA_LIB libcmocka.dylib)
+else()
+    set(CMOCKA_LIB libcmocka.so)
+endif()

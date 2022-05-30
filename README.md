@@ -15,7 +15,7 @@ git submodule add https://git.cryptomilk.org/projects/cmocka.git tests/framework
 cd tests/frameworks/cmocka/; mkdir build
 cd build; cmake ..; make
 ```
-
+If cmake .. fails, run hash -r command.
 cmake -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/gcc ..
 to force to use gcc compiler in C and C++
 
